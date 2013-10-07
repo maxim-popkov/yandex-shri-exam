@@ -6,14 +6,27 @@
 <body>
 	<!-- Заголовок страницы -->
 	<div class="header"></div>
-	<!-- Фильтр поиска студентов -->
-	<div class="search"></div>
-	<!-- Список выдачи студентов -->
-	<div class="list-students"></div>
-	<!-- Блок для тестов -->
-	<div class="tests">
-		<p>First name: <input data-bind="value: firstName"></p>
-		<p>First name capitalized: <strong data-bind="text: firstNameCaps"></strong></p>
+	<!-- Основное меню -->
+	<div class="menu" data-bind="foreach: pages">
+		<div data-bind="text: $data, click: $root.previewPage"></div>
 	</div>
+	<!-- Фильтр поиска студентов -->
+	<div class="search">
+		<input data-bind="value: search, valueUpdate: 'afterkeydown'">
+	</div>
+	<!-- Список выдачи студентов -->
+	<div class="listStudents">
+		<table data-bind="foreach: studentsList">
+			<tr data-bind="click: $root.previewStudent">
+				<td data-bind="text: name"></td>
+				<td data-bind="text: lastName"></td>
+			</tr>
+		</table>
+	</div>
+	<!-- Информая о студенте -->
+	<div class="viewStudent" data-bind="with: chosenStudent">
+		<p>First name <strong data-bind="text: name"></strong> 
+ 		<p>Last name <strong data-bind="text: lastName"></strong> </p> 
+ 	</div>
 </body>
 </html>
