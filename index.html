@@ -1,8 +1,19 @@
 <html>
 <head>
 	<title>Выпускной альбом ШРИ-2013</title>
+	<script type="text/javascript" data-main="js/init.js" src="js/require.js"></script>
 </head>
 <body>
-
+	<!-- Заголовок страницы -->
+	<div class="header"></div>
+	<!-- Фильтр поиска студентов -->
+	<div class="search"></div>
+	<!-- Список выдачи студентов -->
+	<div class="list-students"></div>
+	<!-- Блок для тестов -->
+	<div class="tests">
+		<p>First name: <input data-bind="value: firstName"></p>
+		<p>First name capitalized: <strong data-bind="text: firstNameCaps"></strong></p>
+	</div>
 </body>
 </html>
