@@ -14,6 +14,9 @@ define(['knockout-2.3.0'],function (ko) {
 				{name: 'nm3', lastName: 'lnm3', visible: ko.observable(true)},
 				{name: 'nm4', lastName: 'lnm4', visible: ko.observable(true)},
 			]);
+		// выбранный студент
+		this.chosenStudent = ko.observable();
+
 		// строка поиска
 		this.search = ko.observable();
 
@@ -35,10 +38,7 @@ define(['knockout-2.3.0'],function (ko) {
 				student.visible(regex.test(name));
 			}.bind(this));
 		}, this);
-
-		// выбранный студент
-		this.chosenStudent = ko.observable();
-
+	
 		// показать страницу
 		this.previewPage = function (page) {
 			console.log('page: ', page);

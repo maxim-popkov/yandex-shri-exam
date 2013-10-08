@@ -15,18 +15,27 @@
 		<input data-bind="value: search, valueUpdate: 'afterkeydown'">
 	</div>
 	<!-- Список выдачи студентов -->
-	<div class="listStudents">
-		<table data-bind="foreach: studentsList">
+	<div class="listStudents" data-bind="if: students">
+		<div data-bind="template: {name: 'studentsList-template', data: $root}"></div>
+	</div>
+	<!-- Информая о студенте -->
+	<div data-bind="if: chosenStudent">
+		<div data-bind="template: {name: 'student-template', data: chosenStudent}"></div>	
+	</div>
+	<!-- Templates -->
+	<!-- Student template -->
+ 	<script type="text/html" id="student-template">
+ 		<p>First name <strong data-bind=" text: name"></strong>
+		<p>Last name <strong data-bind=" text: lastName"></strong>
+ 	</script>
+ 	<!-- Students List Template -->
+ 	<script type="text/html" id="studentsList-template">
+ 		<table data-bind="foreach: studentsList">
 			<tr data-bind="click: $root.previewStudent">
 				<td data-bind="text: name"></td>
 				<td data-bind="text: lastName"></td>
 			</tr>
 		</table>
-	</div>
-	<!-- Информая о студенте -->
-	<div class="viewStudent" data-bind="with: chosenStudent">
-		<p>First name <strong data-bind="text: name"></strong> 
- 		<p>Last name <strong data-bind="text: lastName"></strong> </p> 
- 	</div>
+ 	</script>
 </body>
 </html>
