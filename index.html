@@ -22,6 +22,22 @@
 	<div data-bind="if: chosenStudent">
 		<div data-bind="template: {name: 'student-template', data: chosenStudent}"></div>	
 	</div>
+	<!-- Лекции -->
+	<div class="lections" data-bind="if: lections">
+		<table data-bind="foreach: lections">
+			<tr>
+				<td data-bind="text: header"></td>
+				<td data-bind="text: lector"></td>
+			</tr>
+		</table>
+	</div>
+	<!-- О Шри -->
+	<div class="shri" data-bind="if: shri">
+		<div data-bind="with: shri">
+			<div data-bind="text: info"></div>
+			<div data-bind="text: details"></div>			
+		</div>
+	</div>
 	<!-- Templates -->
 	<!-- Student template -->
  	<script type="text/html" id="student-template">
