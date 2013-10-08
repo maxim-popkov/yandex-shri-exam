@@ -41,15 +41,15 @@
 	<!-- Templates -->
 	<!-- Student template -->
  	<script type="text/html" id="student-template">
- 		<p>First name <strong data-bind=" text: name"></strong>
-		<p>Last name <strong data-bind=" text: lastName"></strong>
+ 		<p>First name <strong data-bind=" text: first_name"></strong>
+		<p>Last name <strong data-bind=" text: last_name"></strong>
  	</script>
  	<!-- Students List Template -->
  	<script type="text/html" id="studentsList-template">
  		<table data-bind="foreach: studentsList">
 			<tr data-bind="click: $root.previewStudent">
-				<td data-bind="text: name"></td>
-				<td data-bind="text: lastName"></td>
+				<td data-bind="text: first_name"></td>
+				<td data-bind="text: last_name"></td>
 			</tr>
 		</table>
  	</script>

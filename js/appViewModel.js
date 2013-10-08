@@ -1,19 +1,17 @@
 // Основная логика Приложения
 define(['knockout-2.3.0'],function (ko) {
-	return function appViewModel () {
+	return function appViewModel (studentsModel, lectionsModel, shriModel) {
 		/************************
 		 * Объявления переменных
 		 ************************/
 		this.pages = ['main', 'lections', 'shri'];
 		this.currentPage = ko.observable('main');
 
-		// сохранить студентов перед сменой страницы
-		this.saveStudents = [
-				{name: 'nm1', lastName: 'lnm1', visible: ko.observable(true)},
-				{name: 'nm2', lastName: 'lnm2', visible: ko.observable(true)},
-				{name: 'nm3', lastName: 'lnm3', visible: ko.observable(true)},
-				{name: 'nm4', lastName: 'lnm4', visible: ko.observable(true)},
-			];
+		// cновной список студентов, в цикле добавляется поле visible для отображения в поиске
+		this.studentsModel = studentsModel.students;
+		for (var i = 0; i < this.studentsModel.length; i++) {
+			this.studentsModel[i].visible = ko.observable(true);
+		}
 
 		// список студентов
 		this.students = ko.observableArray();
@@ -57,11 +55,9 @@ define(['knockout-2.3.0'],function (ko) {
 		 ********************/
 		// подписка и действие при обновлении строки поиска
 		this.search.subscribe(function(){
-			console.log(1);
-			console.log(this.search());
 			ko.utils.arrayForEach(this.students(), function (student) {
 				var regex = new RegExp("^" + this.search().toUpperCase());
-				var name = student.name.toUpperCase();
+				var name = student.first_name.toUpperCase();
 				student.visible(regex.test(name));
 			}.bind(this));
 		}, this);
@@ -75,7 +71,7 @@ define(['knockout-2.3.0'],function (ko) {
 					this.lections(null);
 					this.chosenStudent(null);
 					this.shri(null);
-					this.students(this.saveStudents);
+					this.students(this.studentsModel);
 					break;
 				case 'lections':
 					this.chosenLection(null);
@@ -100,14 +96,14 @@ define(['knockout-2.3.0'],function (ko) {
 		this.previewStudent = function(student){
 			console.log('preview student');
 			console.log(student);
-			this.saveStudents = this.students();
+			this.studentsModel = this.students();
 			this.students(null);
-			console.log(this.saveStudents);
+			console.log(this.studentsModel);
 			this.chosenStudent(student);
 		}.bind(this);
 
 		// при первом запуске ни один студент не выбран
 		this.chosenStudent(null);
-		this.students(this.saveStudents);
+		this.students(this.studentsModel);
 	};
 });
