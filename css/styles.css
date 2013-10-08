@@ -1,0 +1,85 @@
+html, body
+{
+	margin: 0;
+	padding: 0;
+}
+
+a
+{
+	color: #777;
+}
+
+.b-line
+{
+	background-color: #efefef;
+	height: 40px;
+	float: left;
+	width: 100%;
+	background: #efefef;
+	overflow: hidden;
+	position: relative;
+}
+.b-logo
+{
+	display: inline-block;
+	padding: 0 10px;
+	background: #ddd;
+	color: #111;
+	text-decoration: none;
+	line-height: 40px;
+	font-size: 20px;
+}
+.b-logo__red_first
+{
+	font-size: 24px;
+	color: red;
+}
+.menu
+{
+	font-family: sans-serif;
+	color: rgb(86,93,100);
+	font-size: 14px;
+	
+	clear: left;
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	left: 50%;
+	text-align: center;
+}
+
+.menu__item
+{
+	display: block;
+	float: left;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	right: 50%;
+	font-size: 16px;
+
+}
+.menu__link
+{
+	display: block;
+	margin: 0 0 0 1px;
+	padding: 0 10px;
+	background: #ddd;
+	color: #333;
+	text-decoration: none;
+	line-height: 37px;
+	border-bottom: 3px solid #ddd;
+}
+.menu__link:hover
+{
+	/*color: #08c;*/
+	border-bottom: 3px solid red;
+}
+
+.menu__link_current
+{
+	border-bottom: 3px solid black;
+}

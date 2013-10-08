@@ -90,6 +90,7 @@ define(['knockout-2.3.0'],function (ko) {
 					console.log(this.shri());
 					break;
 			}
+			this.currentPage(page);
 		}.bind(this);
 
 		// показать студента

@@ -2,18 +2,26 @@
 <head>
 	<title>Выпускной альбом ШРИ-2013</title>
 	<script type="text/javascript" data-main="js/init.js" src="js/require.js"></script>
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 	<!-- Заголовок страницы -->
-	<div class="header"></div>
+	<div class="header">
+	</div>
 	<!-- Основное меню -->
-	<div class="menu" data-bind="foreach: pages">
-		<div data-bind="text: $data, click: $root.previewPage"></div>
+	<div class="b-line">
+			<a class="b-logo" href="">
+				<span class="b-logo__red_first">Я</span>ндекс 
+			</a>
+			<ul class="menu" data-bind="foreach: pages">
+				<li class="menu__item">
+					<a class="menu__link" href="#" data-bind="text: $data, click: $root.previewPage, css: { menu__link_current: $root.currentPage() == $data }"></a>
+				</li>
+			</ul>
 	</div>
+
 	<!-- Фильтр поиска студентов -->
-	<div class="search">
-		<input data-bind="value: search, valueUpdate: 'afterkeydown'">
-	</div>
+
 	<!-- Список выдачи студентов -->
 	<div class="listStudents" data-bind="if: students">
 		<div data-bind="template: {name: 'studentsList-template', data: $root}"></div>
@@ -46,6 +54,9 @@
  	</script>
  	<!-- Students List Template -->
  	<script type="text/html" id="studentsList-template">
+ 		<div class="search">
+			<input data-bind="value: search, valueUpdate: 'afterkeydown'">
+		</div>
  		<table data-bind="foreach: studentsList">
 			<tr data-bind="click: $root.previewStudent">
 				<td data-bind="text: first_name"></td>
