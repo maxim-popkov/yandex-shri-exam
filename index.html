@@ -19,13 +19,12 @@
 				</li>
 			</ul>
 	</div>
-
-	<!-- Фильтр поиска студентов -->
-
 	<!-- Список выдачи студентов -->
 	<div class="listStudents" data-bind="if: students">
 		<div data-bind="template: {name: 'studentsList-template', data: $root}"></div>
 	</div>
+	
+	
 	<!-- Информая о студенте -->
 	<div data-bind="if: chosenStudent">
 		<div data-bind="template: {name: 'student-template', data: chosenStudent}"></div>	
@@ -54,8 +53,9 @@
  	</script>
  	<!-- Students List Template -->
  	<script type="text/html" id="studentsList-template">
- 		<div class="search">
-			<input data-bind="value: search, valueUpdate: 'afterkeydown'">
+ 		<div class="b-search">
+			<input class="b-search__input" placeholder="введите имя" data-bind="value: search, valueUpdate: 'afterkeydown'">
+			<a href="#" class="b-search__button">Найти</a>
 		</div>
  		<table data-bind="foreach: studentsList">
 			<tr data-bind="click: $root.previewStudent">
