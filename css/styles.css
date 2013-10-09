@@ -1,10 +1,103 @@
-html, body
+html, body, p
 {
 	margin: 0;
 	padding: 0;
 }
 
+body{
+	background: #efefef;
+}
+/*
+divider
+	
+ */
+.b-divider
+{
+	border:0;
+	height: 1px;
+	background: #333;
+	background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#ccc), color-stop(0.5, #333), to(#ccc));
+	background-image: -webkit-linear-gradient(left, #ccc, #333, #ccc);
+	background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
+	background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
+	background-image: linear-gradient(left, #ccc, #333, #ccc);
+}
+/*
+	Students List
+ */
+.b-students-list
+{
+	width: 500px;
+	margin: 0 auto 8px;
+	display: table;
+	background: #fff;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+.b-students__table
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+.b-students__row
+{
+	height: 32px;
+	width: 550px;
+	border-radius: 50px;
+	padding: 2px 5px; 
+}
 
+.b-students__row:hover
+{
+	background: #fafafa;
+	cursor: hand;
+}
+
+.b-students__cell
+{
+	display: inline-block;
+	width: 80px;
+	margin: 0;
+	padding: 10px 0;
+	border: 0;
+	border-spacing: 0;
+}
+.b-students__cell_first
+{
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding: 0 10px;
+}
+.b-students__cell_last
+{
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 0 10px;
+}
+
+.b-students__cell_name
+{
+	display: inline-block;
+	color: red;
+}
+.b-students__cell_ava
+{
+	border-radius: 50%;
+/*	border: 1px solid black;*/
+	box-shadow: 0 0 8px rgba(0,0,0,.8);
+	height: 60px;
+	width: 60px;
+	overflow: hidden;
+}
+.b-students__cell_fio
+{
+	font-size: 18px;
+}
+.b-students__cell_view
+{
+	width: 240px;
+	text-align: right;
+}
 /*
 	Search block
  */
@@ -46,25 +139,33 @@ html, body
 	display: inline-block;
 }
 
+.b-content
+{
+	position: relative;
+	top: 42px;
+	z-index: 5;
+}
+
 /*
 	Header
  */
 .b-line
 {
-	background-color: #efefef;
+	background-color: #fff;
 /*	background: none repeat scroll 0 0 #fcfcfc;*/
 	height: 40px;
 	float: left;
 	width: 100%;
-	background: #efefef;
+	background: #fff;
 	overflow: hidden;
-	position: relative;
+	position: fixed;
+	border-bottom: 1px solid black;
+	z-index: 10;
 }
 .b-logo
 {
 	display: inline-block;
 	padding: 0 10px;
-	background: #ddd;
 	color: #111;
 	text-decoration: none;
 	line-height: 40px;
@@ -108,7 +209,6 @@ html, body
 	display: block;
 	margin: 0 0 0 1px;
 	padding: 0 10px;
-	background: #ddd;
 	color: #333;
 	text-decoration: none;
 	line-height: 37px;

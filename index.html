@@ -19,32 +19,34 @@
 				</li>
 			</ul>
 	</div>
-	<!-- Список выдачи студентов -->
-	<div class="listStudents" data-bind="if: students">
-		<div data-bind="template: {name: 'studentsList-template', data: $root}"></div>
-	</div>
-	
-	
-	<!-- Информая о студенте -->
-	<div data-bind="if: chosenStudent">
-		<div data-bind="template: {name: 'student-template', data: chosenStudent}"></div>	
-	</div>
-	<!-- Лекции -->
-	<div class="lections" data-bind="if: lections">
-		<table data-bind="foreach: lections">
-			<tr>
-				<td data-bind="text: header"></td>
-				<td data-bind="text: lector"></td>
-			</tr>
-		</table>
-	</div>
-	<!-- О Шри -->
-	<div class="shri" data-bind="if: shri">
-		<div data-bind="with: shri">
-			<div data-bind="text: info"></div>
-			<div data-bind="text: details"></div>			
+	<div class="b-content">
+		<!-- Список выдачи студентов -->
+		<div class="b-students-list" data-bind="if: students">
+			<div data-bind="template: {name: 'studentsList-template', data: $root}"></div>
+			
 		</div>
+		<!-- Информая о студенте -->
+		<div data-bind="if: chosenStudent">
+			<div data-bind="template: {name: 'student-template', data: chosenStudent}"></div>	
+		</div>
+		<!-- Лекции -->
+		<div class="lections" data-bind="if: lections">
+			<table data-bind="foreach: lections">
+				<tr>
+					<td data-bind="text: header"></td>
+					<td data-bind="text: lector"></td>
+				</tr>
+			</table>
+		</div>
+		<!-- О Шри -->
+		<div class="shri" data-bind="if: shri">
+			<div data-bind="with: shri">
+				<div data-bind="text: info"></div>
+				<div data-bind="text: details"></div>			
+			</div>
+		</div>	
 	</div>
+	
 	<!-- Templates -->
 	<!-- Student template -->
  	<script type="text/html" id="student-template">
@@ -57,10 +59,25 @@
 			<input class="b-search__input" placeholder="введите имя" data-bind="value: search, valueUpdate: 'afterkeydown'">
 			<a href="#" class="b-search__button">Найти</a>
 		</div>
- 		<table data-bind="foreach: studentsList">
-			<tr data-bind="click: $root.previewStudent">
-				<td data-bind="text: first_name"></td>
-				<td data-bind="text: last_name"></td>
+		<hr class="b-divider">
+		<table class="b-students__table" data-bind="foreach: studentsList">
+			<tr class="b-students__row" data-bind="click: $root.previewStudent">
+				<td class="b-students__cell b-students__cell_first">
+					<div class="b-students__cell_ava">
+						<img data-bind="attr:{src: link_photo}" src="http://cs309418.vk.me/v309418752/cc67/cjxo9lnG7cw.jpg" width="60px" height="60px" alt="">	
+					</div>
+				</td>
+				<td class="b-students__cell">
+					<div class="b-students__cell_fio">
+						<p data-bind="text: first_name">Имя</p>
+						<p data-bind="text: last_name">Фамилия</p>
+					</div>
+				</td>
+				<td class="b-students__cell b-students__cell_last">
+					<div class="b-students__cell_view">
+						<a href="">Просмотр</a>
+					</div>
+				</td>
 			</tr>
 		</table>
  	</script>
