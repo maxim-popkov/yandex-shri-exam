@@ -6,12 +6,12 @@ html, body, p
 
 body{
 	background: #efefef;
-/*	background-image: url(../images/autumn_leaves_3-1440x810.jpg);
-	background-size: cover;*/
+	background-image: url(../images/autumn_leaves_3-1440x810.jpg);
+	background-size: cover;
 }
+
 /*
 divider
-	
  */
 .b-divider
 {
@@ -25,13 +25,133 @@ divider
 	background-image: linear-gradient(left, #ccc, #333, #ccc);
 }
 /*
+	Lections
+ */
+.b-lections
+{
+	width: 600px;
+	background: rgba(255, 255, 255, 0.85);
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.b-lections-table
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.b-lections__row
+{
+	height: 32px;
+	width: 550px;
+	border-radius: 50px;
+	padding: 2px 5px; 
+}
+
+.b-lections__row:hover 
+{
+	background: rgba(230,230,230,0.8);
+	cursor: hand; /*chrome*/
+	cursor: pointer;/*ff*/
+	_cursor: hand;/*ie*/
+}
+
+.b-lections__cell
+{
+	display: inline-block;
+	width: 80px;
+	height: 64px;
+	margin: 0;
+	padding: 10px 0;
+	border: 0;
+	border-spacing: 0;
+}
+.b-lections__cell_fio
+{
+	font-size: 16px;
+	width: 96px;
+}
+.b-lections__cell_first
+{
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding: 0 10px;
+	width: 60px
+}
+.b-lections__cell_last
+{
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 0 10px;
+}
+.b-lections__cell_title
+{
+	width: 256px;
+	font-size: 18px;
+	margin-right: 17px;
+	text-decoration: underline;
+}
+.b-lections__cell_title::first-letter
+{
+	color: red;
+	font-size: 18px;
+}
+.b-lections__cell_link
+{
+
+}
+/*helpers*/
+.b-circle
+{
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+	box-shadow: 0 0 8px rgba(0,0,0,.8);
+}
+.b-center
+{
+	margin: 0 auto 8px;
+	display: table;
+}
+.b-first-red::first-letter
+{
+	color: red;
+	font-size: 16px;
+}
+/*end helpers*/
+
+/*date block*/
+.b-date
+{
+	text-align: center;
+	background: #000;
+	color: #eee;
+	font-family: Georgia, serif;
+	font-style: italic;
+}
+.b-date__month
+{
+	display: block;
+	font-size: 12px;
+	padding: 10px 0 0;
+}
+.b-date__day
+{
+	display: block;
+	font-size: 16px;
+	font-family: Arial sans-serif;
+}
+/*end date block*/
+
+/*
 	Students List
  */
 .b-students-list
 {
 	width: 500px;
-	margin: 0 auto 8px;
-	display: table;
+/*	margin: 0 auto 8px;
+	display: table;*/
 	background: rgba(255, 255, 255, 0.85);
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
@@ -43,7 +163,7 @@ divider
 }
 .b-students__row
 {
-	height: 32px;
+	height: 60px;
 	width: 550px;
 	border-radius: 50px;
 	padding: 2px 5px; 
@@ -56,8 +176,6 @@ divider
 	cursor: pointer;/*ff*/
 	_cursor: hand;/*ie*/
 }
-
-
 .b-students__cell
 {
 	display: inline-block;

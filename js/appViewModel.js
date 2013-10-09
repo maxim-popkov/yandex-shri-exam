@@ -44,7 +44,17 @@ define(['knockout-2.3.0'],function (ko) {
 
 		this.lectionsModel = lectionsModel.lections;
 		for (var j = 0; j < this.lectionsModel.length; j++) {
-			this.lectionsModel[j].lector = this.lectorsModel.getLectorById(this.lectionsModel[j].lector_id);
+			var lection = this.lectionsModel[j];
+			lection.lector = this.lectorsModel.getLectorById(lection.lector_id);
+			var lecDate = new Date(lection.date);
+			var monthStrings = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек',];
+
+			lection.day =  lecDate.getDay();
+			lection.month = monthStrings[lecDate.getMonth()];
+
+			console.log(lection.month);
+			console.log(lection.day);
+			console.log(lecDate);
 		}
 
 
