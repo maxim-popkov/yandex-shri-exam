@@ -6,7 +6,8 @@ html, body, p
 
 body{
 	background: #efefef;
-	background-image: url(../images/autumn_leaves_3-1440x810.jpg);
+/*	background-image: url(../images/autumn_leaves_3-1440x810.jpg);
+	background-size: cover;*/
 }
 /*
 divider
@@ -50,7 +51,7 @@ divider
 
 .b-students__row:hover 
 {
-	background: #f5f5f5;
+	background: rgba(230,230,230,0.8);
 	cursor: hand; /*chrome*/
 	cursor: pointer;/*ff*/
 	_cursor: hand;/*ie*/

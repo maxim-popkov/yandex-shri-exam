@@ -1,6 +1,6 @@
 // Основная логика Приложения
 define(['knockout-2.3.0'],function (ko) {
-	return function appViewModel (studentsModel, lectionsModel, shriModel) {
+	return function appViewModel (studentsModel, lectionsModel, lectorsModel) {
 		/************************
 		 * Объявления переменных
 		 ************************/
@@ -31,12 +31,23 @@ define(['knockout-2.3.0'],function (ko) {
 			}
 		},this);
 		
+		/**
+		 * Лектора
+		 */
+		//список лекторов
+		this.lectorsModel = lectorsModel;
+
+		/**
+		 * Лекции
+		 */
 		// сохранить лекции перед сменой страницы
-		this.saveLections = [
-				{header: 'lec1', lector: 'lector1'},
-				{header: 'lec2', lector: 'lector2'},
-				{header: 'lec3', lector: 'lector3'},
-			];
+
+		this.lectionsModel = lectionsModel.lections;
+		for (var j = 0; j < this.lectionsModel.length; j++) {
+			this.lectionsModel[j].lector = this.lectorsModel.getLectorById(this.lectionsModel[j].lector_id);
+		}
+
+
 
 		// список лекций
 		this.lections = ko.observableArray();
@@ -78,7 +89,8 @@ define(['knockout-2.3.0'],function (ko) {
 					this.chosenStudent(null);
 					this.students(null);
 					this.shri(null);
-					this.lections(this.saveLections);
+					this.lections(this.lectionsModel);
+					console.log(this.lectionsModel);
 					console.log(this.lections());
 					break;
 				case 'shri':

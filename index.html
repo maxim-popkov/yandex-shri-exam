@@ -34,8 +34,10 @@
 		<div class="lections" data-bind="if: lections">
 			<table data-bind="foreach: lections">
 				<tr>
-					<td data-bind="text: header"></td>
-					<td data-bind="text: lector"></td>
+					<td data-bind="text: title"></td>
+					<td data-bind="text: date"></td>
+					<td data-bind="text: lector.first_name"></td>
+					<td data-bind="text: lector.last_name"></td>
 				</tr>
 			</table>
 		</div>
