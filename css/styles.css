@@ -6,8 +6,8 @@ html, body, p
 
 body{
 	background: #efefef;
-	background-image: url(../images/autumn_leaves_3-1440x810.jpg);
-	background-size: cover;
+/*	background-image: url(../images/autumn_leaves_3-1440x810.jpg);
+	background-size: cover;*/
 }
 
 /*
@@ -23,6 +23,46 @@ divider
 	background-image: -moz-linear-gradient(left, #ccc, #333, #ccc);
 	background-image: -o-linear-gradient(left, #ccc, #333, #ccc);
 	background-image: linear-gradient(left, #ccc, #333, #ccc);
+}
+/*
+	Student
+ */
+.b-student
+{
+	width: 500px;
+	background: #fff;
+}
+.b-student__header
+{
+	display: table;
+	border-spacing: 5px;
+}
+.b-student__content
+{
+	margin: 0 auto 8px;
+	display: table;
+}
+.b-student__details
+{
+	text-align: justify;
+	margin: 10px 5px;
+}
+.b-st-header__ava
+{
+	display: table-cell;
+}
+.b-st-header__fio
+{
+	display: table-cell;
+	font-size: 24px;
+	vertical-align: middle;
+	margin: 0 20px;
+}
+.b-st-content__image
+{
+	max-height: 400px;
+	background-size: cover;
+	text-align: center;
 }
 /*
 	Lections
