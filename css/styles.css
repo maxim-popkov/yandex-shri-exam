@@ -6,8 +6,8 @@ html, body, p
 
 body{
 	background: #efefef;
-/*	background-image: url(../images/autumn_leaves_3-1440x810.jpg);
-	background-size: cover;*/
+	background-image: url(../images/autumn_leaves_3-1440x810.jpg);
+	background-size: cover;
 }
 
 /*
@@ -29,27 +29,38 @@ divider
  */
 .b-student
 {
-	width: 500px;
-	background: #fff;
+	width: 600px;
+	background: rgba(255, 255, 255, 0.85);
 }
 .b-student__header
 {
+	width: 100%;
 	display: table;
 	border-spacing: 5px;
+	background: #fff;
+	border-bottom: 1px solid black;
 }
 .b-student__content
 {
-	margin: 0 auto 8px;
+	margin: 0 auto;
 	display: table;
 }
 .b-student__details
 {
-	text-align: justify;
-	margin: 10px 5px;
+	border-top: 1px solid black;
+	background: #fff;
 }
 .b-st-header__ava
 {
 	display: table-cell;
+	overflow: hidden;
+/*	width: 48px;
+	height: 48px;*/
+}
+.b-st-header__ava_img
+{
+	height: 50px;
+	width: 50px;
 }
 .b-st-header__fio
 {
@@ -58,11 +69,52 @@ divider
 	vertical-align: middle;
 	margin: 0 20px;
 }
+.b-st-header__socials
+{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: right;
+}
+.b-st-header__socials_vk
+{
+	display: inline-block;
+	height: 42px;
+}
+.b-st-header__socials_vk a
+{
+	border-radius: 50%;
+	display: block;
+	width: 42px;
+	height: 42px;
+	box-shadow: 0 0 8px rgba(0,0,0,.8);
+	background: #111 url(../images/social-icons-habr.png) no-repeat -205px -64px;
+}
+.b-st-header__socials_git
+{
+	display: inline-block;
+}
+.b-st-header__socials_git a
+{
+	border-radius: 50%;
+	display: block;
+	width: 42px;
+	height: 42px;
+	box-shadow: 0 0 8px rgba(0,0,0,.8);
+	background: #111 url(../images/social-icons-habr.png) no-repeat -54px -64px;
+}
+
 .b-st-content__image
 {
 	max-height: 400px;
 	background-size: cover;
 	text-align: center;
+}
+.b-student__details_txt
+{
+	text-align: justify;
+	padding: 10px;
+	font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
+	font-size: 14px;
 }
 /*
 	Lections
