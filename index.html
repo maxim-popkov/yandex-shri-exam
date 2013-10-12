@@ -44,7 +44,6 @@
 			</div>
 		</div>	
 	</div>
-	
 	<!-- Templates -->
 	<!-- Lections template -->
 	<script type="text/html" id="lectionsTemplate">
@@ -81,12 +80,14 @@
 		</table>
  	</script>
 	<!-- Student template -->
+				 <!-- <img class="b-st-header__ava_img" data-bind="attr:{src: link_photo}" href=""></img> -->
  	<script type="text/html" id="studentTemplate">
 		<div class="b-student__header">
-			<div class="b-circle b-st-header__ava">
-				<img class="b-st-header__ava_img" data-bind="attr:{src: link_photo}" href=""></img>
+			<div class="b-circle b-st-header__ava" data-bind="click: $root.showHideDetails">
+				<img class="b-st-header__ava_img" data-bind="visible: true == $root.isVisibleDetails(), attr:{src: link_photo}" href=""></img> 
+				<span class="b-st-header__ava_info" data-bind="visible: false == $root.isVisibleDetails()">i</span>
 			</div>
-			<div class="b-st-header__fio">
+			<div class="b-st-header__fio" data-bind="click: $root.showHideDetails">
 				<span><strong data-bind=" text: first_name"></strong></span>
 				<span><strong data-bind=" text: last_name"></strong></span>
 			</div>
@@ -100,10 +101,15 @@
 			</div>
 		</div>
 		<div class="b-student__content">
-			<img class="b-st-content__image" data-bind="attr:{src: link_photo}" src="" alt="">
+			<div class="b-st-content__wrap">
+				<img class="b-st-content__image" data-bind="attr:{src: link_photo}" src="" alt="">
+			</div>
+			<div class="b-student__details_show" data-bind="visible: $root.isVisibleDetails">
+			<p class="b-student__details_info" data-bind="text: about">
+			</p></div>
 		</div>
 		<div class="b-student__details">
-			<p class="b-student__details_txt" data-bind="text: about"></p>
+			<p class="b-student__details_txt">тынц-тынц здесь будет что-то</p>
 		</div>
  	</script>
  	<!-- Students List Template -->

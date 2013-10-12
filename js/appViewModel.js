@@ -7,6 +7,9 @@ define(['knockout-2.3.0'],function (ko) {
 		this.pages = ['main', 'lections', 'shri'];
 		this.currentPage = ko.observable('main');
 
+		// показывать или скрывать расширенную информацию о студентах
+		this.isVisibleDetails = ko.observable(false);
+
 		// cновной список студентов, в цикле добавляется поле visible для отображения в поиске
 		this.studentsModel = studentsModel.students;
 		for (var i = 0; i < this.studentsModel.length; i++) {
@@ -41,7 +44,6 @@ define(['knockout-2.3.0'],function (ko) {
 		 * Лекции
 		 */
 		// сохранить лекции перед сменой страницы
-
 		this.lectionsModel = lectionsModel.lections;
 		for (var j = 0; j < this.lectionsModel.length; j++) {
 			var lection = this.lectionsModel[j];
@@ -56,8 +58,6 @@ define(['knockout-2.3.0'],function (ko) {
 			console.log(lection.day);
 			console.log(lecDate);
 		}
-
-
 
 		// список лекций
 		this.lections = ko.observableArray();
@@ -82,6 +82,15 @@ define(['knockout-2.3.0'],function (ko) {
 				student.visible(regex.test(name));
 			}.bind(this));
 		}, this);
+
+		/**
+		 * меняет состояние isVisibleDetails на противоположное, для скрытия или отображения инфо о студенте
+		 * @return {[type]} [description]
+		 */
+		this.showHideDetails = function(){
+			console.log('showHideDetails work');
+			this.isVisibleDetails(!this.isVisibleDetails());
+		}.bind(this);
 	
 		// показать страницу
 		this.previewPage = function (page) {

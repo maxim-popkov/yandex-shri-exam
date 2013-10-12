@@ -9,7 +9,30 @@ body{
 	background-image: url(../images/autumn_leaves_3-1440x810.jpg);
 	background-size: cover;
 }
+.b-student__details_show {
+	position: absolute;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,10,0.9);
+    color:white;
+    width: 100%;
 
+}
+.b-student__details_hide{
+	visibility: hide;
+}
+.b-student__details_info
+{
+	display: inline-block;
+    vertical-align: middle;
+    padding: 10px 15px;
+    position:relative;
+    font-weight:normal;
+ 	text-align: justify;   
+}
 /*
 divider
  */
@@ -29,8 +52,9 @@ divider
  */
 .b-student
 {
+	position: relative;
 	width: 600px;
-	background: rgba(255, 255, 255, 0.85);
+	background: rgba(255, 255, 255, 0.9);
 }
 .b-student__header
 {
@@ -42,6 +66,11 @@ divider
 }
 .b-student__content
 {
+	position: relative;
+}
+.b-st-content__wrap
+{
+	position: relative;
 	margin: 0 auto;
 	display: table;
 }
@@ -54,8 +83,18 @@ divider
 {
 	display: table-cell;
 	overflow: hidden;
+	background: #000;
+	vertical-align: middle;
+	text-align: center;
+	cursor: hand;
 /*	width: 48px;
 	height: 48px;*/
+}
+.b-st-header__ava_info
+{
+	font-size: 32px;
+	color: #fff;
+
 }
 .b-st-header__ava_img
 {
