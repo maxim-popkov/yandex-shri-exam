@@ -1,6 +1,6 @@
 // Основная логика Приложения
 define(['knockout-2.3.0'],function (ko) {
-	return function appViewModel (studentsModel, lectionsModel, lectorsModel) {
+	return function appViewModel (studentsModel, lectionsModel, lectorsModel, shriModel) {
 		/************************
 		 * Объявления переменных
 		 ************************/
@@ -65,10 +65,11 @@ define(['knockout-2.3.0'],function (ko) {
 		// выбранная лекция
 		this.chosenLection = ko.observable();
 
-		// cохраненная информация о Шри
-		this.saveShri = {info: 'shri info', details: 'shri details'};
+
+
 
 		// Про Шри
+		this.shriModel = shriModel.shri;
 		this.shri = ko.observable();
 
 		/********************
@@ -117,7 +118,7 @@ define(['knockout-2.3.0'],function (ko) {
 					this.chosenStudent(null);
 					this.students(null);
 					this.lections(null);
-					this.shri(this.saveShri);
+					this.shri(this.shriModel);
 					console.log(this.shri());
 					break;
 			}

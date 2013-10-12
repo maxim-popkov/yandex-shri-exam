@@ -37,10 +37,28 @@
 			
 		</div>
 		<!-- О Шри -->
-		<div class="shri" data-bind="if: shri">
+		<div class="b-center b-shri" class="shri" data-bind="if: shri">
 			<div data-bind="with: shri">
-				<div data-bind="text: info"></div>
-				<div data-bind="text: details"></div>			
+				<div class="b-shri__header">
+					<div class="b-shri__header_title">
+						<span> <strong  data-bind="text: title"></strong></span>	
+					</div>
+					
+				</div>
+				<div class="b-shri__content">
+					<iframe width="600" height="400px" frameborder="0" src="http://video.yandex.ru/iframe/ya-events/ck9pq8zckh.3409/"></iframe>
+				</div>
+				<div class="b-shri__footer">
+					<div class="b-shri__info">
+						<h1>О ШРИ</h1>
+						<div data-bind="foreach: details_info">
+							<p class="b-shri__info_p" data-bind="text:$data"></p>
+						</div>
+<!-- 						<div class="b-shri__email">
+							<span>Почта:</span>
+							<span data-bind="text: email"></span>
+						</div> -->
+					</div>
 			</div>
 		</div>	
 	</div>

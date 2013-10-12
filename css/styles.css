@@ -9,6 +9,59 @@ body{
 	background-image: url(../images/autumn_leaves_3-1440x810.jpg);
 	background-size: cover;
 }
+
+/*
+	Shri
+ */
+.b-shri
+{
+	position: relative;
+	width: 600px;
+	background: rgba(255, 255, 255, 0.9);
+}
+.b-shri__header
+{
+	height: 50px;
+	width: 100%;
+	display: table;
+	border-spacing: 5px;
+	background: #fff;
+	border-bottom: 1px solid black;
+}
+.b-shri__header_title
+{
+	text-align: center;
+	display: table-cell;
+	font-size: 24px;
+	vertical-align: middle;
+}
+.b-shri__content
+{
+	height: 400px;
+	text-align: center;
+	position: relative;
+	background: rgba(10, 10, 10, 0.9);
+
+}
+.b-shri__footer
+{
+	height: 100%;
+	border-top: 1px solid black;
+	background: #fff;
+
+}
+.b-shri__info
+{
+	margin: 10px 15px;
+}
+.b-shri__info_p
+{
+	text-align: justify;
+	margin-top: 15px; 
+}
+/*
+	student
+ */
 .b-student__details_show {
 	position: absolute;
     text-align: center;
@@ -190,7 +243,7 @@ divider
 
 .b-lections__cell
 {
-	display: inline-block;
+/*	display: inline-block;*/
 	width: 80px;
 	height: 64px;
 	margin: 0;
