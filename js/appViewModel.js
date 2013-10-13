@@ -1,11 +1,12 @@
 // Основная логика Приложения
 define(['knockout-2.3.0'],function (ko) {
-	return function appViewModel (studentsModel, lectionsModel, lectorsModel, shriModel) {
+	return function appViewModel (studentsModel, lectionsModel, lectorsModel, shriModel, pagesModel) {
 		/************************
 		 * Объявления переменных
 		 ************************/
-		this.pages = ['main', 'lections', 'shri'];
-		this.currentPage = ko.observable('main');
+		this.pagesModel = pagesModel;
+		this.pages = this.pagesModel.pages;
+		this.currentPage = ko.observable(this.pagesModel.startPage);
 
 		// показывать или скрывать расширенную информацию о студентах
 		this.isVisibleDetails = ko.observable(false);
@@ -26,7 +27,7 @@ define(['knockout-2.3.0'],function (ko) {
 
 		// список студентов в ответе страницы
 		this.studentsList = ko.computed(function(){
-			if (this.currentPage() == 'main') {
+			if (this.currentPage().sys_name == 'main') {
 					console.log('studentsList recalc');
 						return ko.utils.arrayFilter(this.students(), function(student){
 					return student.visible();
@@ -96,7 +97,7 @@ define(['knockout-2.3.0'],function (ko) {
 		// показать страницу
 		this.previewPage = function (page) {
 			console.log('page: ', page);
-			switch(page){
+			switch(page.sys_name){
 				case 'main':
 					this.chosenLection(null);
 					this.lections(null);

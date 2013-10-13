@@ -16,7 +16,7 @@
 			</a>
 			<ul class="menu" data-bind="foreach: pages">
 				<li class="menu__item">
-					<a class="menu__link" href="#" data-bind="text: $data, click: $root.previewPage, css: { menu__link_current: $root.currentPage() == $data }"></a>
+					<a class="menu__link" href="#" data-bind="text: $data.name, click: $root.previewPage, css: { menu__link_current: $root.currentPage() == $data }"></a>
 				</li>
 			</ul>
 	</div>
