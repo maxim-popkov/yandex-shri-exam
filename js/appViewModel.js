@@ -76,8 +76,10 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
         this.search.subscribe(function(){
             ko.utils.arrayForEach(this.students(), function (student) {
                 var regex = new RegExp("^" + this.search().toUpperCase());
-                var name = student.first_name.toUpperCase();
-                student.visible(regex.test(name));
+                var firstName = student.first_name.toUpperCase();
+                var lastName = student.last_name.toUpperCase();
+                var isVisible = regex.test( firstName) || regex.test(lastName);
+                student.visible(isVisible);
             }.bind(this));
         }, this);
 
