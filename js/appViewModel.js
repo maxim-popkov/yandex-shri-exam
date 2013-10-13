@@ -32,7 +32,6 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
         this.studentsList = ko.computed(function(){
             if (this.currentPage().sys_name == 'main') {
                         return ko.utils.arrayFilter(this.students(), function(student){
-                            console.log('studentsList recalc', student);
                     return student.visible();
                 });
             }
@@ -88,7 +87,6 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
          * @return {[type]} [description]
          */
         this.showHideDetails = function(){
-            console.log('showHideDetails work');
             this.isVisibleDetails(!this.isVisibleDetails());
         }.bind(this);
     
@@ -110,10 +108,8 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
          */
         this.previewNextStudent = function(student){
             var id = student.id;
-            console.log('next');
             var nextStudent = this.studentsModel.getNextStudent(id);
             this.studentsModel.currentStudent = nextStudent;
-            console.log(nextStudent);
             location.hash = "main/" + nextStudent.id;
         }.bind(this);
         

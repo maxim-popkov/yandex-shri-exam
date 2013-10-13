@@ -28,7 +28,6 @@ define("studentsModel",[], function (){
                     currPos = i;
                 }
             }
-            console.log(currPos);
             if (length - 1 > currPos) {
                 return this.students[currPos+1];
             }
