@@ -23,8 +23,8 @@
 	<div class="b-content">
 		<!-- Список выдачи студентов -->
 		<div class="b-center b-students-list" data-bind="if: students">
-			<div data-bind="template: {name: 'studentsList-template', data: $root}"></div>
-			
+			<div data-bind="template: {name: 'studentsList-template', data: $root}">
+			</div>
 		</div>
 		<!-- Информая о студенте -->
 		<div data-bind="if: chosenStudent">
@@ -84,10 +84,10 @@
 					<td class="b-lections__cell_last b-lections__cell">
 						<div class="b-lections__cell_link">
 							<div data-bind="if: video_url">
-								<a data-bind="attr:{href: video_url}" href="">Видео</a>
+								<a class="b-link" data-bind="attr:{href: video_url}" href="">Видео</a>
 							</div>
 							<div data-bind="if: slides_url">
-								<a data-bind="attr:{href: slides_url}" href="">Слайды</a>
+								<a class="b-link" data-bind="attr:{href: slides_url}" href="">Слайды</a>
 							</div>
 						</div>
 					</td>
@@ -116,7 +116,7 @@
 				</div> 
 			</div>
 		</div>
-		<div class="b-student__content">
+		<div class="b-student__content" data-bind="click: $root.previewNextStudent">
 			<div class="b-st-content__wrap">
 				<img class="b-st-content__image" data-bind="attr:{src: link_photo}" src="" alt="">
 			</div>
@@ -124,9 +124,7 @@
 			<p class="b-student__details_info" data-bind="text: about">
 			</p></div>
 		</div>
-		<div class="b-student__details">
-			<p class="b-student__details_txt"></p>
-		</div>
+
  	</script>
  	<!-- Students List Template -->
  	<script type="text/html" id="studentsList-template">
@@ -151,7 +149,7 @@
 					</td>
 					<td class="b-students__cell b-students__cell_last">
 						<div class="b-students__cell_view">
-							<a href="">Просмотр</a>
+							<a class="b-link" href="">Просмотр</a>
 						</div>
 					</td>
 				</tr>

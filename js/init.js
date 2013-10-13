@@ -27,4 +27,5 @@ require(['jquery', 'ko',
 
     var appVM = new appViewModel(studentsMdl, lectionsMdl, lectorsMdl, shriMdl, pagesMdl);
     ko.applyBindings(appVM);
+    appVM.router.run();
 });

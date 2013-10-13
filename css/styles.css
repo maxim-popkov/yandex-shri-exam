@@ -3,7 +3,6 @@ html, body, p
 	margin: 0;
 	padding: 0;
 }
-
 body{
 	background: #efefef;
 	background-image: url(../images/autumn_leaves_3-1440x810.jpg);
@@ -120,6 +119,13 @@ divider
 .b-student__content
 {
 	position: relative;
+	border-bottom: 1px solid #000;
+}
+.b-student__content
+{
+	cursor: hand; /*chrome*/
+	cursor: pointer;/*ff*/
+	_cursor: hand;/*ie*/
 }
 .b-st-content__wrap
 {
@@ -149,6 +155,11 @@ divider
 	color: #fff;
 
 }
+.b-st-header__ava:hover
+{
+	color: red;
+	background: #333;
+}
 .b-st-header__ava_img
 {
 	height: 50px;
@@ -159,7 +170,11 @@ divider
 	display: table-cell;
 	font-size: 24px;
 	vertical-align: middle;
-	margin: 0 20px;
+/*	margin: 0 20px;*/
+}
+.b-st-header__fio:hover
+{
+	text-decoration: underline;
 }
 .b-st-header__socials
 {
@@ -236,9 +251,6 @@ divider
 .b-lections__row:hover 
 {
 	background: rgba(230,230,230,0.8);
-	cursor: hand; /*chrome*/
-	cursor: pointer;/*ff*/
-	_cursor: hand;/*ie*/
 }
 
 .b-lections__cell
@@ -283,9 +295,22 @@ divider
 }
 .b-lections__cell_link
 {
-
+	text-decoration: none;
 }
+/*.b-lections__cell_link:hover
+{
+	text-decoration: underline;
+}*/
 /*helpers*/
+.b-link
+{
+	text-decoration: none;
+}
+.b-link:hover
+{
+	text-decoration: underline;
+}
+
 .b-circle
 {
 	border-radius: 50%;

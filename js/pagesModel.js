@@ -22,7 +22,6 @@ define("pagesModel",[], function (){
          * @return {[type]}         [description]
          */
         this.getPageBySysName = function(sysName){
-            console.log(this);
             for (var i = 0; i < this.pages.length; i++) {
                  if (this.pages[i].sys_name == sysName) {
                     return  this.pages[i];

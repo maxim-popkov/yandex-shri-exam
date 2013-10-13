@@ -1,6 +1,12 @@
 define("studentsModel",[], function (){
     return function studentsModel () {
-        this.getStudentbyId = function(id){
+        
+        /**
+         * Вернуть студента с указанным id
+         * @param  {[type]} id [description]
+         * @return {[type]}    [description]
+         */
+        this.getStudentById = function(id){
             for (var i = 0; i < this.students.length; i++) {
                 if (this.students[i].id === id) {
                     return this.students[i];
@@ -8,6 +14,31 @@ define("studentsModel",[], function (){
             }
             return null;
         }.bind(this);
+
+        /**
+         * Вернуть следующего студента
+         * @param  {[type]} studentId id студента
+         * @return {[type]}           след студент
+         */
+        this.getNextStudent = function(studentId){
+            var length = this.students.length;
+            var currPos = 0;
+            for (var i = 0; i < length; i++) {
+                if (this.students[i].id === studentId) {
+                    currPos = i;
+                }
+            }
+            console.log(currPos);
+            if (length - 1 > currPos) {
+                return this.students[currPos+1];
+            }
+            else{
+                return this.students[0];
+            }
+        }.bind(this);
+
+        this.currentStudent = null;
+
         this.students = [
               {
                 "id":"1",

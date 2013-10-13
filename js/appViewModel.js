@@ -1,7 +1,7 @@
 // Основная логика Приложения
 define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
     
-    return function appViewModel (studentsModel, lectionsModel, lectorsModel, shriModel, pagesModel) {
+    return function appViewModel (studentsModel, lectionsModel, lectorsModel, shriModel, pagesModel, path) {
         // ссыка на приложение для роутера sammy
         var app = this;
         /************************
@@ -21,7 +21,7 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
         }
 
         // список студентов
-        this.students = ko.observableArray();
+        this.students = ko.observableArray(null);
         // выбранный студент
         this.chosenStudent = ko.observable();
 
@@ -31,8 +31,8 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
         // список студентов в ответе страницы
         this.studentsList = ko.computed(function(){
             if (this.currentPage().sys_name == 'main') {
-                    console.log('studentsList recalc');
                         return ko.utils.arrayFilter(this.students(), function(student){
+                            console.log('studentsList recalc', student);
                     return student.visible();
                 });
             }
@@ -57,10 +57,6 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
 
             lection.day =  lecDate.getDay();
             lection.month = monthStrings[lecDate.getMonth()];
-
-            console.log(lection.month);
-            console.log(lection.day);
-            console.log(lecDate);
         }
 
         // список лекций для отображения
@@ -98,51 +94,81 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
         this.previewPage = function (page) {
             location.hash = page.sys_name;
           }.bind(this);
+        
         // показать студента
         this.previewStudent = function(student){
+            this.studentsModel.currentStudent = student;
             location.hash = "main/" + student.id;
         }.bind(this);
         
+        /**
+         * показать следующего студента
+         * @param  {[type]} student [description]
+         * @return {[type]}         [description]
+         */
+        this.previewNextStudent = function(student){
+            var id = student.id;
+            console.log('next');
+            var nextStudent = this.studentsModel.getNextStudent(id);
+            this.studentsModel.currentStudent = nextStudent;
+            console.log(nextStudent);
+            location.hash = "main/" + nextStudent.id;
+        }.bind(this);
+        
+        /**
+         * Сброс состояний страницы
+         * @return {[type]} [description]
+         */
+        this.resetState = function(){
+             this.chosenLection(null);
+             this.chosenStudent(null);
+             this.students(null);
+             this.shri(null);
+             this.lections(null);
+        }.bind(this);
+
+
         /**
          * роутер страниц
          * @return {[type]} [description]
          */
         this.router = sammy(function(){
             this.get('#main', function() {
-                app.chosenLection(null);
-                app.lections(null);
-                app.chosenStudent(null);
-                app.shri(null);
+                app.resetState();
                 app.students(app.studentsModel.students);
                 app.currentPage(app.pagesModel.getPageBySysName('main'));
             });
             this.get('#lections', function() {
-                app.chosenLection(null);
-                app.chosenStudent(null);
-                app.students(null);
-                app.shri(null);
+                app.resetState();
                 app.lections(app.lectionsModel);
                 app.currentPage(app.pagesModel.getPageBySysName('lections'));
             });
             this.get('#shri', function() {
-                app.chosenLection(null);
-                app.chosenStudent(null);
-                app.students(null);
-                app.lections(null);
+                app.resetState();
                 app.shri(app.shriModel);
                 app.currentPage(app.pagesModel.getPageBySysName('shri'));
             });
             this.get('#main/:studentId', function() {
-                app.chosenLection(null);
-                app.students(null);
-                app.lections(null);
-                app.shri(null);
-                console.log(typeof this.params.studentId);
-                app.chosenStudent(app.studentsModel.getStudentbyId(this.params.studentId));
+                app.resetState();
+                var student = {};
+                if(app.studentsModel.currentStudent){
+                    student = app.studentsModel.currentStudent;
+                }
+                else{
+                    student =  app.studentsModel.getStudentById(this.params.studentId);
+                }
+                if (student) {
+                    app.chosenStudent(student);
+                }
+                else{
+                    app.previewPage(app.pagesModel.startPage);
+                }
+                
             });
-            this.get('', function() { this.app.runRoute('get', '#main');});
+            this.get('', function(){
+                this.app.runRoute('get', '#main');
+            });
         });
-        this.router.run();
 
     };
 });
