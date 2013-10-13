@@ -2,7 +2,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Выпускной альбом ШРИ-2013</title>
-	<script type="text/javascript" data-main="js/init.js" src="js/require.js"></script>
+	<script type="text/javascript" data-main="js/init.js" src="js/libs/require.js"></script>
 	<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -34,11 +34,15 @@
 		<!-- Лекции -->
 		<div class="b-center b-lections" data-bind="if: lections">
 			<div data-bind="template: {name: 'lectionsTemplate', data: $root}"></div>
-			
 		</div>
 		<!-- О Шри -->
 		<div class="b-center b-shri" class="shri" data-bind="if: shri">
-			<div data-bind="with: shri">
+			<div data-bind="template: {name: 'shriTemplate', data: $root}"></div>
+		</div>
+	<!-- Templates -->
+	<!-- Shri template -->
+	<script type="text/html" id="shriTemplate">
+		<div data-bind="with: shri">
 				<div class="b-shri__header">
 					<div class="b-shri__header_title">
 						<span> <strong  data-bind="text: title"></strong></span>	
@@ -53,16 +57,10 @@
 						<h1>О ШРИ</h1>
 						<div data-bind="foreach: details_info">
 							<p class="b-shri__info_p" data-bind="text:$data"></p>
-						</div>
-<!-- 						<div class="b-shri__email">
-							<span>Почта:</span>
-							<span data-bind="text: email"></span>
-						</div> -->
 					</div>
 			</div>
 		</div>	
-	</div>
-	<!-- Templates -->
+	</script>
 	<!-- Lections template -->
 	<script type="text/html" id="lectionsTemplate">
 	<table class="b-lections-table">
