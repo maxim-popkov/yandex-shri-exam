@@ -7,6 +7,7 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
         /************************
          * Объявления переменных
          ************************/
+
         this.pagesModel = pagesModel;
         this.pages = this.pagesModel.pages;
         this.currentPage = ko.observable(this.pagesModel.startPage);
@@ -71,6 +72,7 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
         /********************
          * Логика приложения
          ********************/
+
         // подписка и действие при обновлении строки поиска
         this.search.subscribe(function(){
             ko.utils.arrayForEach(this.students(), function (student) {
@@ -123,6 +125,7 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
              this.students(null);
              this.shri(null);
              this.lections(null);
+             document.title = 'Выпускной альбом ШРИ-2013';
         }.bind(this);
 
 
@@ -157,6 +160,7 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
                 }
                 if (student) {
                     app.chosenStudent(student);
+                    document.title = student.first_name + ' ' + student.last_name;
                 }
                 else{
                     app.previewPage(app.pagesModel.startPage);
