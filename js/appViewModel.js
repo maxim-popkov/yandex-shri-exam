@@ -68,9 +68,6 @@ define(['ko'],function (ko) {
         // выбранная лекция
         this.chosenLection = ko.observable();
 
-
-
-
         // Про Шри
         this.shriModel = shriModel.shri;
         this.shri = ko.observable();
