@@ -19,7 +19,9 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
         this.studentsModel = studentsModel;
         for (var i = 0; i < this.studentsModel.students.length; i++) {
             this.studentsModel.students[i].visible = ko.observable(true);
+            this.studentsModel.students[i].inOffset = ko.observable(false);
         }
+
 
         // список студентов
         this.students = ko.observableArray(null);
@@ -29,15 +31,38 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
         // строка поиска
         this.search = ko.observable();
 
+        // this.studentsOffset = ko.observable(0);
+        this.maxStep = 8;
+        this.curStep = ko.observable(0);
+        this.listLength = 8;
         // список студентов в ответе страницы
         this.studentsList = ko.computed(function(){
+            var resultVisible = [];
+            var result = [];
             if (this.currentPage().sys_name == 'main') {
-                        return ko.utils.arrayFilter(this.students(), function(student){
+                        resultVisible = ko.utils.arrayFilter(this.students(), function(student){
                     return student.visible();
                 });
+                
+                var offsetMin = (this.curStep() + 0) * this.maxStep;
+                
+                if (offsetMin > resultVisible.length) {
+                    this.curStep(0);
+                    offsetMin = (this.curStep() + 0) * this.maxStep;
+                }
+
+                var offsetMax = (this.curStep() + 1) * this.maxStep;
+                var offsetReal = offsetMax % this.maxStep;
+                for (var i = offsetMin; i < resultVisible.length && i < offsetMax; i++) {
+                    result.push(resultVisible[i]);
+                }
+                return result;
+
             }
+
         },this);
         
+
         /**
          * Лектора
          */
@@ -75,6 +100,7 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
 
         // подписка и действие при обновлении строки поиска
         this.search.subscribe(function(){
+            this.curStep(0);
             ko.utils.arrayForEach(this.students(), function (student) {
                 var regex = new RegExp("^" + this.search().toUpperCase());
                 var firstName = student.first_name.toUpperCase();
@@ -83,6 +109,14 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
                 student.visible(isVisible);
             }.bind(this));
         }, this);
+
+        /**
+         * Показать ещё студентов (прибавляет еденицу с смещению)
+         * @return {[type]} [description]
+         */
+        this.nextStudents = function(){
+            this.curStep(this.curStep() + 1);
+        }.bind(this);
 
         /**
          * меняет состояние isVisibleDetails на противоположное, для скрытия или отображения инфо о студенте

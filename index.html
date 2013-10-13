@@ -130,7 +130,7 @@
  	<script type="text/html" id="studentsList-template">
  		<div class="b-search">
 			<input class="b-search__input" placeholder="введите имя, фамилию" data-bind="value: search, valueUpdate: 'afterkeydown'">
-			<a href="#" class="b-search__button">Найти</a>
+			<a href="#" class="b-search__button" data-bind="click: $root.nextStudents">Хочу больше</a>
 		</div>
 		<hr class="b-divider">
 		<table class="b-students__table">
@@ -155,6 +155,7 @@
 				</tr>
 			</tbody>
 		</table>
+
  	</script>
 </body>
 </html>
