@@ -15,13 +15,28 @@ define("pagesModel",[], function (){
          * @type {[type]}
          */
         this.startPage = this.pages[0];
+        
+        /**
+         * Вернуть объект страницы по системному имени
+         * @param  {[type]} sysName [description]
+         * @return {[type]}         [description]
+         */
+        this.getPageBySysName = function(sysName){
+            console.log(this);
+            for (var i = 0; i < this.pages.length; i++) {
+                 if (this.pages[i].sys_name == sysName) {
+                    return  this.pages[i];
+                 }
+            }
+            return 'None';
+        }.bind(this);
         /**
          * Вернуть имя страницы по её системному имени
          */
         this.getPageNameBySysName = function(sysName){
-            for (var i = 0; i < pages.length; i++) {
-                 if (pages[i].sys_name == sysName) {
-                    return  pages[i].sys_name;
+            for (var i = 0; i < this.pages.length; i++) {
+                 if (this.pages[i].sys_name == sysName) {
+                    return  this.pages[i].sys_name;
                  }
             }
             return 'None';
@@ -32,8 +47,8 @@ define("pagesModel",[], function (){
          */
         this.getSysNames = function(){
             var sysNames = [];
-            for (var i = 0; i < pages.length; i++) {
-                sysNames.push(pages[i].sys_name);
+            for (var i = 0; i < this.pages.length; i++) {
+                sysNames.push(this.pages[i].sys_name);
             }
             return sysNames;
         }.bind(this);

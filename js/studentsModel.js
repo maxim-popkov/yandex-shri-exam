@@ -1,8 +1,16 @@
 define("studentsModel",[], function (){
     return function studentsModel () {
+        this.getStudentbyId = function(id){
+            for (var i = 0; i < this.students.length; i++) {
+                if (this.students[i].id === id) {
+                    return this.students[i];
+                }
+            }
+            return null;
+        }.bind(this);
         this.students = [
               {
-                "Timestamp":"9/28/2013 2:51:14",
+                "id":"1",
                 "first_name":"Никита",
                 "last_name":"Попов",
                 "city":"Санкт-Петербург",
@@ -15,7 +23,7 @@ define("studentsModel",[], function (){
                 "gender":"male",
               },
               {
-                "Timestamp":"9/28/2013 15:13:05",
+                "id":"2",
                 "first_name":"Роман",
                 "last_name":"Орловский",
                 "city":"Нижний Новгород",
@@ -28,7 +36,7 @@ define("studentsModel",[], function (){
                 "gender":"male",
               },
               {
-                "Timestamp":"9/28/2013 19:10:29",
+                "id":"3",
                 "first_name":"Андрей",
                 "last_name":"Морозов",
                 "city":"Ставрополь",
@@ -41,7 +49,7 @@ define("studentsModel",[], function (){
                 "gender":"male",
               },
               {
-                "Timestamp":"9/28/2013 19:37:30",
+                "id":"4",
                 "first_name":"Максим",
                 "last_name":"Попков",
                 "city":"Балашиха",
@@ -54,7 +62,7 @@ define("studentsModel",[], function (){
                 "gender":"male",
               },
               {
-                "Timestamp":"9/28/2013 19:46:14",
+                "id":"5",
                 "first_name":"Алексей",
                 "last_name":"Кондратов",
                 "city":"Москва",
@@ -67,7 +75,7 @@ define("studentsModel",[], function (){
                 "gender":"male",
               },
               {
-                "Timestamp":"9/28/2013 19:56:02",
+                "id":"6",
                 "first_name":"Михаил",
                 "last_name":"Шустов",
                 "city":"Санкт-Петербург",
@@ -80,7 +88,7 @@ define("studentsModel",[], function (){
                 "gender":"male",
               },
               {
-                "Timestamp":"9/28/2013 20:07:32",
+                "id":"7",
                 "first_name":"Михаил",
                 "last_name":"Коциевский",
                 "city":"Одесса",
@@ -93,7 +101,7 @@ define("studentsModel",[], function (){
                 "gender":"male",
               },
               {
-                "Timestamp":"9/28/2013 21:34:50",
+                "id":"8",
                 "first_name":"Мария",
                 "last_name":"Метелёва",
                 "city":"Киров",

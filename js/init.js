@@ -3,6 +3,7 @@ require.config( {
         jquery: 'libs/jquery',
         ko: 'libs/knockout-2.3.0',
         domReady: 'libs/domReady',
+        sammy: 'libs/sammy',
     },
     baseUrl: 'js'
 });
