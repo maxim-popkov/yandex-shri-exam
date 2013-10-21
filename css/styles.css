@@ -170,6 +170,7 @@ divider
 	display: table-cell;
 	font-size: 24px;
 	vertical-align: middle;
+	cursor: hand;
 /*	margin: 0 20px;*/
 }
 .b-st-header__fio:hover

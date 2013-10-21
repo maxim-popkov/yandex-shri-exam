@@ -104,8 +104,10 @@
 				<span class="b-st-header__ava_info" data-bind="visible: false == $root.isVisibleDetails()">i</span>
 			</div>
 			<div class="b-st-header__fio" data-bind="click: $root.showHideDetails">
-				<span><strong data-bind=" text: first_name"></strong></span>
-				<span><strong data-bind=" text: last_name"></strong></span>
+				<a>
+					<span><strong data-bind=" text: first_name"></strong></span>
+					<span><strong data-bind=" text: last_name"></strong></span>
+				</a>
 			</div>
 			<div class="b-st-header__socials">
 				<div class="b-st-header__socials_vk" data-bind="if:link_vk">
