@@ -286,7 +286,6 @@ divider
 	width: 256px;
 	font-size: 18px;
 	margin-right: 17px;
-	text-decoration: underline;
 }
 .b-lections__cell_title::first-letter
 {

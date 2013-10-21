@@ -6,7 +6,7 @@ define("pagesModel",[], function (){
          */
         this.pages =
             [
-                {name: 'Меню', sys_name: 'main'},
+                {name: 'Студенты', sys_name: 'main'},
                 {name: 'Лекции', sys_name: 'lections'},
                 {name: 'О Шри', sys_name: 'shri'},
             ];
