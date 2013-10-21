@@ -523,6 +523,7 @@ divider
 }
 .b-logo
 {
+	position: absolute;
 	float: left;
 	padding: 0 10px;
 	color: #111;
