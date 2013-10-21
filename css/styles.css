@@ -61,6 +61,33 @@ body{
 /*
 	student
  */
+.b-student__pager
+{
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+/*	background: #f99;*/ /*debug*/
+	opacity: 0;
+	clear: both;
+}
+.b-student__pager_left
+{
+	height: 100%;
+	width: 50%;
+	position: relative;
+	/*background: #9f9;*/ /*debug*/
+	float: left;
+}
+.b-student__pager_right
+{
+	height: 100%;
+	width: 50%;
+	position: relative;
+	/*background: #99f;*/ /*debug*/
+	float: left;
+}
 .b-student__details_show {
 	position: absolute;
     text-align: center;
