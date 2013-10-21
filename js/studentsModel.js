@@ -37,6 +37,27 @@ define("studentsModel",[], function (){
             }
         }.bind(this);
 
+        /**
+         * Вернуть предыдущего студента 
+         * @param  {[int]} studentId [id студента]
+         * @return {[student]}       [студент предыдущий по списку]
+         */
+        this.getPrevStudent = function(studentId){
+            var length = this.students.length;
+            var currPos = 0;
+            for (var i = 0; i < length; i++) {
+                if (this.students[i].id === studentId) {
+                    currPos = i;
+                }
+            }
+            if ( currPos > 0 ) {
+                return this.students[currPos-1];
+            }
+            else{
+                return this.students[length-1];
+            }
+        }.bind(this);
+
         this.currentStudent = null;
 
         this.students = [
