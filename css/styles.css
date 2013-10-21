@@ -523,7 +523,7 @@ divider
 }
 .b-logo
 {
-	display: inline-block;
+	float: left;
 	padding: 0 10px;
 	color: #111;
 	text-decoration: none;
@@ -534,6 +534,11 @@ divider
 {
 	font-size: 24px;
 	color: red;
+}
+.b-menu__wrap
+{
+	width: 100%;
+	position: absolute;	
 }
 .menu
 {
