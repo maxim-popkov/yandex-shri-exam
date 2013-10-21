@@ -118,13 +118,18 @@
 				</div> 
 			</div>
 		</div>
-		<div class="b-student__content" data-bind="click: $root.previewNextStudent">
+		<div class="b-student__content">
 			<div class="b-st-content__wrap">
 				<img class="b-st-content__image" data-bind="attr:{src: link_photo}" src="" alt="">
 			</div>
 			<div class="b-student__details_show" data-bind="visible: $root.isVisibleDetails">
-			<p class="b-student__details_info" data-bind="text: about">
-			</p></div>
+				<p class="b-student__details_info" data-bind="text: about">
+				</p>
+			</div>
+			<div class="b-student__pager">
+				<div class="b-student__pager_left" data-bind="click: $root.previewPrevStudent"></div>
+				<div class="b-student__pager_right" data-bind="click: $root.previewNextStudent"></div>
+			</div>
 		</div>
 
  	</script>
