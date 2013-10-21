@@ -22,7 +22,8 @@ define("pagesModel",[], function (){
          * @return {[type]}         [description]
          */
         this.getPageBySysName = function(sysName){
-            for (var i = 0; i < this.pages.length; i++) {
+            var pgsLength = this.pages.length;
+            for (var i = 0; i < pgsLength; i++) {
                  if (this.pages[i].sys_name == sysName) {
                     return  this.pages[i];
                  }
@@ -33,7 +34,8 @@ define("pagesModel",[], function (){
          * Вернуть имя страницы по её системному имени
          */
         this.getPageNameBySysName = function(sysName){
-            for (var i = 0; i < this.pages.length; i++) {
+            var pgsLength = this.pages.length;
+            for (var i = 0; i < pgsLength; i++) {
                  if (this.pages[i].sys_name == sysName) {
                     return  this.pages[i].sys_name;
                  }
@@ -46,7 +48,8 @@ define("pagesModel",[], function (){
          */
         this.getSysNames = function(){
             var sysNames = [];
-            for (var i = 0; i < this.pages.length; i++) {
+            var pgsLength = this.pages.length;
+            for (var i = 0; i < pgsLength; i++) {
                 sysNames.push(this.pages[i].sys_name);
             }
             return sysNames;

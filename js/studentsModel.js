@@ -7,7 +7,8 @@ define("studentsModel",[], function (){
          * @return {[type]}    [description]
          */
         this.getStudentById = function(id){
-            for (var i = 0; i < this.students.length; i++) {
+            var length = this.students.length;
+            for (var i = 0; i < length; i++) {
                 if (this.students[i].id === id) {
                     return this.students[i];
                 }

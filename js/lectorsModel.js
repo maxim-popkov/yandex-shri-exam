@@ -6,7 +6,8 @@ define("lectorsModel",[], function (){
          * @return {lector object}  лектор
          */
         this.getLectorById = function(id){
-            for (var k = 0; k < this.lectors.length; k++) {
+            var lctsLength = this.lectors.length;
+            for (var k = 0; k < lctsLength; k++) {
                 if(this.lectors[k].id === id){
                     return this.lectors[k];
                 }

@@ -17,7 +17,8 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
 
         // cновной список студентов, в цикле добавляется поле visible для отображения в поиске
         this.studentsModel = studentsModel;
-        for (var i = 0; i < this.studentsModel.students.length; i++) {
+        var stLength = this.studentsModel.students.length;
+        for (var i = 0; i < stLength; i++) {
             this.studentsModel.students[i].visible = ko.observable(true);
             this.studentsModel.students[i].inOffset = ko.observable(false);
         }
@@ -45,7 +46,7 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
                 });
                 
                 var offsetMin = (this.curStep() + 0) * this.maxStep;
-                
+
                 if (offsetMin > resultVisible.length) {
                     this.curStep(0);
                     offsetMin = (this.curStep() + 0) * this.maxStep;
@@ -53,7 +54,9 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
 
                 var offsetMax = (this.curStep() + 1) * this.maxStep;
                 var offsetReal = offsetMax % this.maxStep;
-                for (var i = offsetMin; i < resultVisible.length && i < offsetMax; i++) {
+
+                var rsVsLength = resultVisible.length;
+                for (var i = offsetMin; i < rsVsLength && i < offsetMax; i++) {
                     result.push(resultVisible[i]);
                 }
                 return result;
@@ -69,20 +72,8 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
         //список лекторов
         this.lectorsModel = lectorsModel;
 
-        /**
-         * Лекции
-         */
         // лекции 
         this.lectionsModel = lectionsModel.lections;
-        var monthStrings = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек',];
-        for (var j = 0; j < this.lectionsModel.length; j++) {
-            var lection = this.lectionsModel[j];
-            lection.lector = this.lectorsModel.getLectorById(lection.lector_id);
-            var lecDate = new Date(lection.date);
-            
-            lection.day =  lecDate.getDay();
-            lection.month = monthStrings[lecDate.getMonth()];
-        }
 
         // список лекций для отображения
         this.lections = ko.observableArray();

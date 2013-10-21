@@ -29,6 +29,18 @@ require(['jquery', 'ko',
     var shriMdl = new shriModel();
     var pagesMdl = new pagesModel();
 
+    //инициализация дат для лекций
+    var monthStrings = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек',];
+    var length = lectionsMdl.lections.length;
+    for (var j = 0; j < length; j++) {
+        var lection = lectionsMdl.lections[j];
+        lection.lector = lectorsMdl.getLectorById(lection.lector_id);
+        var lecDate = new Date(lection.date);
+        
+        lection.day =  lecDate.getDay();
+        lection.month = monthStrings[lecDate.getMonth()];
+    }
+
     var appVM = new appViewModel(studentsMdl, lectionsMdl, lectorsMdl, shriMdl, pagesMdl);
     ko.applyBindings(appVM);
     appVM.router.run();
