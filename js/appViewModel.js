@@ -23,7 +23,6 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
             this.studentsModel.students[i].inOffset = ko.observable(false);
         }
 
-
         // список студентов
         this.students = ko.observableArray(null);
         // выбранный студент
@@ -133,13 +132,20 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
          * @param  {[type]} student [description]
          * @return {[type]}         [description]
          */
-        this.previewNextStudent = function(student){
+        this.previewNextStudent = function(student, event){
             var id = student.id;
             var nextStudent = this.studentsModel.getNextStudent(id);
             this.studentsModel.currentStudent = nextStudent;
             location.hash = "main/" + nextStudent.id;
         }.bind(this);
         
+        this.previewPrevStudent = function(student){
+            var id = student.id;
+            var prevStudent = this.studentsModel.getPrevStudent(id);
+            this.studentsModel.currentStudent = prevStudent;
+            location.hash = "main/" + prevStudent.id;
+        }.bind(this);
+
         /**
          * Сброс состояний страницы
          * @return {[type]} [description]
