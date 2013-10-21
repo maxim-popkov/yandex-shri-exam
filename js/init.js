@@ -5,19 +5,23 @@ require.config( {
         domReady: 'libs/domReady',
         sammy: 'libs/sammy',
     },
+    shim: {
+        'sammy':['jquery'],
+        'appViewModel':['ko','pagesModel','studentsModel','lectionsModel','lectorsModel','shriModel'],
+    },
     baseUrl: 'js'
 });
 
 // инициализация приложения
 require(['jquery', 'ko',
+         'pagesModel',
          'studentsModel',
          'lectionsModel',
          'lectorsModel',
          'shriModel',
-         'pagesModel',
          'appViewModel',
          'domReady!'
-         ], function ( jquery, ko, studentsModel, lectionsModel, lectorsModel, shriModel, pagesModel, appViewModel){
+         ], function ( jquery, ko, pagesModel, studentsModel, lectionsModel, lectorsModel, shriModel, appViewModel){
 
     var studentsMdl = new studentsModel();
     var lectionsMdl = new lectionsModel();

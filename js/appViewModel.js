@@ -74,12 +74,12 @@ define(['ko','jquery','sammy'],function (ko, jquery, sammy) {
          */
         // лекции 
         this.lectionsModel = lectionsModel.lections;
+        var monthStrings = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек',];
         for (var j = 0; j < this.lectionsModel.length; j++) {
             var lection = this.lectionsModel[j];
             lection.lector = this.lectorsModel.getLectorById(lection.lector_id);
             var lecDate = new Date(lection.date);
-            var monthStrings = ['Янв','Фев','Мар','Апр','Май','Июн','Июл','Авг','Сен','Окт','Ноя','Дек',];
-
+            
             lection.day =  lecDate.getDay();
             lection.month = monthStrings[lecDate.getMonth()];
         }
